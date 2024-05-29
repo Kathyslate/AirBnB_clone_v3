@@ -13,6 +13,7 @@ from models import storage
 def status():
     """
     status route
+    :return: response with json
     """
     data = {
         "status": "OK"
@@ -26,7 +27,10 @@ def status():
 
 @app_views.route("/stats", methods=['GET'], strict_slashes=False)
 def stats():
-    """ stats of all objs route """
+    """
+    stats of all objs route
+    :return: json of all objs
+    """
     data = {
         "amenities": storage.count("Amenity"),
         "cities": storage.count("City"),

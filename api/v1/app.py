@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ app.py file """
-
 from flask import Flask, jsonify
 from flask_cors import CORS
 from os import getenv
@@ -28,6 +27,7 @@ def teardown(exception):
 def handle_404(exception):
     """
     handles 404 error
+    :return: returns 404 json
     """
     data = {
         "error": "Not found"
@@ -37,6 +37,7 @@ def handle_404(exception):
     resp.status_code = 404
 
     return(resp)
+
 
 if __name__ == "__main__":
     app.run(getenv("HBNB_API_HOST"), getenv("HBNB_API_PORT"))
